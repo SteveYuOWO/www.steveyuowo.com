@@ -27,13 +27,12 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'images',
-				path: './src/images/'
-			},
-			__key: 'images'
+				name: 'assets',
+				path: './src/assets/'
+			}
 		},
 		{
-			resolve: `gatsby-plugin-typescript`,
+			resolve: 'gatsby-plugin-typescript',
 			options: {
 				isTSX: true, // defaults to false
 				jsxPragma: `jsx`, // defaults to "React"
