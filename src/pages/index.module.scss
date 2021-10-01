@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  padding: $loose $extra-loose;
+  max-width: $screen-max-width;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  .articles {
+    width: 70%;
+    margin-right: $loose;
+    .article {
+      margin-bottom: $base;
+      padding: $base;
+      list-style-position: inside;
+    }
+  }
+
+  .categories {
+    width: 30%;
+  }
+
+  transition: padding 0.3s ease-in-out;
+}
+
+
+@media (max-width: 1024px) { 
+  .container {
+    padding: $loose $base;
+    .articles {
+      width: 100%;
+      margin: 0;
+    }
+    .categories {
+      display: none;
+    }
+  }
+}

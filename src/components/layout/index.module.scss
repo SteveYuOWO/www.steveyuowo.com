@@ -1,13 +1,13 @@
 .header {
   height: 50vh;
-  background: #ffd1c2;
+  background: $theme-color; 
   .container {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 150px;
-    max-width: 1200px;
+    padding: 0 $extra-loose;
+    max-width: $screen-max-width;
     margin: 0 auto;
     .left {
       h1, p, div {
@@ -34,25 +34,35 @@
 @media (max-width: 1024px) { 
   .header {
     .container {
-      padding: 0 50px;
+      padding: 0 $base;
     }
   }
 }
 
 @media (max-width: 768px) {
   .header {
+    height: 60vh;
+    padding: $loose 0;
+    .container {
+      .right {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 80vh;
     .container {
       flex-direction: column;
       justify-content: center;
       .right {
         margin-top: 30px;
-        width: 250px;
-        height: 250px;
       }
     }
-    padding: 80px 0;
   }
 }
-
 
 

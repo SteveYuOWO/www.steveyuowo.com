@@ -12,14 +12,19 @@ module.exports = {
 				url: 'http://steveyuowo.local/graphql'
 			}
 		},
-		'gatsby-plugin-sass',
+		{
+			resolve: 'gatsby-plugin-sass',
+			options: {
+				additionalData: `@import "./src/scss/_variables";`
+			}
+		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-sitemap',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				icon: 'src/images/icon.png'
+				icon: 'src/assets/profile.png'
 			}
 		},
 		'gatsby-plugin-sharp',
