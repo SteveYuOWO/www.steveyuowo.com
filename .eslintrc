@@ -1,0 +1,10 @@
+{
+  "extends": "steveyuowo/react",
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  }
+}
