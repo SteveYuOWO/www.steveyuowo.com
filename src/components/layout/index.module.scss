@@ -11,7 +11,7 @@
     margin: 0 auto;
     .left {
       h1, p, div {
-        margin-bottom: 18px;
+        margin-bottom: 10px;
       }
       .navlink {
         margin-right: 10px;
@@ -27,6 +27,7 @@
 }
 
 .footer {
+  background-color: $theme-color;
   text-align: center;
   padding: 20px 0;
 }
