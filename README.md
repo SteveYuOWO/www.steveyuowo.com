@@ -6,7 +6,7 @@
 
 Install plugin `WP Gatsby`, `WP GraphQL`, and change `gatsby-config.js`
 
-```json
+```shell
 {
   resolve: 'gatsby-source-wordpress',
   options: {
