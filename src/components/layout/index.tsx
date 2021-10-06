@@ -12,6 +12,7 @@ interface ILayout {
 }
 
 const Layout: FC<ILayout> = ({children, title, description, canonical}) => {
+  const host = 'https://www.steveyuowo.com';
   return (
     <>
       <Helmet 
@@ -22,13 +23,13 @@ const Layout: FC<ILayout> = ({children, title, description, canonical}) => {
 				<meta charSet="utf-8" />
         <title>Steve Yu's Blog - {title}</title>
         <meta name="description" content={description} />
-				<link rel="canonical" href={`https://www.steveyuowo.com${canonical}`} />
+				<link rel="canonical" href={`${host}${canonical}`} />
         {/* open graph */}
-        <meta property="og:url" content={`https://www.steveyuowo.com${canonical}`} />
+        <meta property="og:url" content={`${host}${canonical}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`Steve Yu's Blog - ${title}`} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={ShareImage} />
+        <meta property="og:image" content={`${host}${ShareImage}`} />
 			</Helmet>
       <Header />
       <main>{children}</main>
