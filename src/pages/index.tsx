@@ -36,7 +36,7 @@ const IndexPage = ({ location }) => {
 	const blogs = useFilterBlogsByParams(rawBlogs, location);
 
 	return (
-		<Layout title="home" description="steveyuowo - Steve Yu's blog" canonical={location.href}>
+		<Layout title="home" description="steveyuowo - Steve Yu's blog" canonical="/">
 			<div className={styles.container}>
 				<div className={clsx(styles.articles, 'shadow')}>
 					<div className={styles.article}>

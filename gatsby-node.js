@@ -36,7 +36,8 @@ exports.createPages = ({ graphql, actions }) => {
           author: node.author.node.name,
           categories: node.categories.nodes,
           slug: node.slug,
-          content: node.content
+          content: node.content,
+          canonical: `/archive/${node.slug}`
         }
       })
     })

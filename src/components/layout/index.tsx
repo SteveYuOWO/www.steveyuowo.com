@@ -20,7 +20,7 @@ const Layout: FC<ILayout> = ({children, title, description, canonical}) => {
 				<meta charSet="utf-8" />
         <title>Steve Yu's Blog - {title}</title>
         <meta name="description" content={description} />
-				<link rel="canonical" href={canonical} />
+				<link rel="canonical" href={`https://www.steveyuowo.com${canonical}`} />
 			</Helmet>
       <Header />
       <main>{children}</main>
