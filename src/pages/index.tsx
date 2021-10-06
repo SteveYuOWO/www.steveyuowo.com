@@ -41,7 +41,14 @@ const IndexPage = () => {
 					</div>
 				</div>
 				<div className={clsx(styles.categories, 'shadow')}>
-					{categories.map((category) => <div key={category}>{category}</div>)}
+					<h2>Categories</h2>
+					<div className={styles.category}>
+						{categories.map((category) => (
+							<Link to={`/category/${category}`}>
+								<div key={category}>{category}</div>
+							</Link>
+						))}
+					</div>
 				</div>
 			</div>
 		</Layout>
