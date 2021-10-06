@@ -11,7 +11,7 @@ export const navLinks: NavLinkNames[] = [
 	},
 	{
 		name: 'twitter',
-		url: 'https://twitter.com/SteveYu08816933'
+		url: 'https://twitter.com/OwOSteveYu'
 	},
 	{
 		name: 'bilibili',
