@@ -7,7 +7,7 @@ function Article({ pageContext }) {
 	const { title, slug, date, content, categories, author } = pageContext;
 
 	return (
-		<Layout>
+		<Layout title={title} description={`steveyuowo - ${title}`} canonical={location.href}>
 			<section className={styles.container}>
 				<div className={clsx(styles.article, 'shadow', 'markdown-body')}>
 					<div dangerouslySetInnerHTML={{ __html: content }} />
