@@ -29,6 +29,9 @@
     padding: $base;
     .category {
       margin: $small 0;
+      .text {
+        margin-top: $extra-small;
+      }
       * {
         color: $emphasis;
         font-weight: 500;

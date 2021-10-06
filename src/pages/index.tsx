@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../components/layout';
 import { useQueryBlogInfo } from '../querys/queryBlog';
 import clsx from 'classnames';
 import { Link } from 'gatsby';
+import * as queryString from 'query-string';
 import * as styles from './index.module.scss';
 
-const IndexPage = () => {
-	const blogs = useQueryBlogInfo();
+const useFilterBlogsByParams = (rawBlogs) => {
+	const { search } = location;
+	const { category } = queryString.parse(search);
 
-	const categories = blogs
+	if (category) {
+		rawBlogs = rawBlogs.filter((blog) =>
+			blog.categories.nodes.map((node) => node.name).includes(category as string)
+		);
+	}
+	// query others
+	return rawBlogs;
+};
+
+const IndexPage = () => {
+	const rawBlogs = useQueryBlogInfo();
+
+	const categories = rawBlogs
 		.reduce((acc, blog) => [ ...acc, ...blog.categories.nodes.map((category) => category.name) ], [])
 		.sort((a, b) => a.localeCompare(b))
 		.reduce(
@@ -18,6 +32,8 @@ const IndexPage = () => {
 			},
 			[] as string[]
 		);
+
+	const blogs = useFilterBlogsByParams(rawBlogs);
 
 	return (
 		<Layout>
@@ -43,10 +59,13 @@ const IndexPage = () => {
 				<div className={clsx(styles.categories, 'shadow')}>
 					<h2>Categories</h2>
 					<div className={styles.category}>
+						<div key="all">
+							<Link to="/">all</Link>
+						</div>
 						{categories.map((category) => (
-							<Link key={category} to={`/category/${category}`}>
-								<div>{category}</div>
-							</Link>
+							<div className={styles.text} key={category}>
+								<Link to={`/?category=${category}`}>{category}</Link>
+							</div>
 						))}
 					</div>
 				</div>
