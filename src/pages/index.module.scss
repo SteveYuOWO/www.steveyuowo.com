@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  transition: padding 0.3s ease-in-out;
   .articles {
     width: 70%;
     margin-right: $loose;
@@ -28,11 +29,12 @@
     padding: $base;
     .category {
       margin: $small 0;
+      * {
+        color: $emphasis;
+        font-weight: 500;
+      }
     }
   }
-  
-
-  transition: padding 0.3s ease-in-out;
 }
 
 

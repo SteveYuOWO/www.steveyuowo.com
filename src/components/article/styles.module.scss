@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  padding: $loose $extra-loose;
+  max-width: $screen-max-width;
+  margin: 0 auto;
+  transition: padding 0.3s ease-in-out;
+  .article {
+    padding: $loose;
+  }
+}
+
+@media (max-width: 1024px) { 
+  .container {
+    padding: $loose $base;
+    .article {
+      padding: $base;
+    }
+  }
+}

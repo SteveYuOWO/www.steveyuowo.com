@@ -44,8 +44,8 @@ const IndexPage = () => {
 					<h2>Categories</h2>
 					<div className={styles.category}>
 						{categories.map((category) => (
-							<Link to={`/category/${category}`}>
-								<div key={category}>{category}</div>
+							<Link key={category} to={`/category/${category}`}>
+								<div>{category}</div>
 							</Link>
 						))}
 					</div>
