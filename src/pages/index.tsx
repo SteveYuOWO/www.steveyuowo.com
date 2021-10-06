@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import { useQueryBlogInfo } from '../querys/queryBlog';
 import clsx from 'classnames';
+import { Link } from 'gatsby';
 import * as styles from './index.module.scss';
 
 const IndexPage = () => {
@@ -21,17 +22,24 @@ const IndexPage = () => {
 	return (
 		<Layout>
 			<div className={styles.container}>
-				<ul className={clsx(styles.articles, 'shadow')}>
-					{blogs.map((blog) => (
-						<li key={blog.slug} className={styles.article}>
-							<li>
-								{blog.date}
-								{blog.categories.nodes.map((category) => `, ${category.name}`)}
-							</li>
-							<h2>{blog.title}</h2>
-						</li>
-					))}
-				</ul>
+				<div className={clsx(styles.articles, 'shadow')}>
+					<div className={styles.article}>
+						<h2>Articles</h2>
+						<ul>
+							{blogs.map((blog) => (
+								<Link key={blog.slug} to={`/archive/${blog.slug}`}>
+									<li>
+										<div className={styles.articleInfos}>
+											{blog.date}
+											{blog.categories.nodes.map((category) => `, ${category.name}`)}
+										</div>
+										<h3>{blog.title}</h3>
+									</li>
+								</Link>
+							))}
+						</ul>
+					</div>
+				</div>
 				<div className={clsx(styles.categories, 'shadow')}>
 					{categories.map((category) => <div key={category}>{category}</div>)}
 				</div>

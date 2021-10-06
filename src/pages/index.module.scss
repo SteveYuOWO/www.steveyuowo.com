@@ -9,9 +9,17 @@
     width: 70%;
     margin-right: $loose;
     .article {
-      margin-bottom: $base;
       padding: $base;
-      list-style-position: inside;
+      list-style-position: outside;
+      li {
+        padding-top: $small;
+        .articleInfos {
+          color: $gray;
+          font-size: 14px;
+          font-style: italic;
+          font-weight: 500;
+        }
+      }
     }
   }
 
