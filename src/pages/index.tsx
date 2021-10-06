@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import * as queryString from 'query-string';
 import * as styles from './index.module.scss';
 
-const useFilterBlogsByParams = (rawBlogs) => {
+const useFilterBlogsByParams = (rawBlogs, location) => {
 	const { search } = location;
 	const { category } = queryString.parse(search);
 
@@ -19,7 +19,7 @@ const useFilterBlogsByParams = (rawBlogs) => {
 	return rawBlogs;
 };
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
 	const rawBlogs = useQueryBlogInfo();
 
 	const categories = rawBlogs
@@ -33,7 +33,7 @@ const IndexPage = () => {
 			[] as string[]
 		);
 
-	const blogs = useFilterBlogsByParams(rawBlogs);
+	const blogs = useFilterBlogsByParams(rawBlogs, location);
 
 	return (
 		<Layout>
