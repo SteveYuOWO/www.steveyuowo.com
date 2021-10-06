@@ -19,7 +19,7 @@ interface IBlogInfo {
 export const useQueryBlogInfo = (): IBlogInfo[] => {
   return useStaticQuery(graphql`
     query QueryBlogInfo {
-      allWpPost {
+      allWpPost(sort: {fields: date, order: DESC}) {
         nodes {
           title
           date(formatString: "yyyy.MM.DD")
@@ -36,7 +36,7 @@ export const useQueryBlogInfo = (): IBlogInfo[] => {
           slug
         }
       }
-    }
+    } 
   `)
   .allWpPost
   .nodes as IBlogInfo[]
