@@ -30,6 +30,11 @@ const Layout: FC<ILayout> = ({children, title, description, canonical}) => {
         <meta property="og:title" content={`Steve Yu's Blog - ${title}`} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={`${host}${ShareImage}`} />
+        {/* twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@steveyuowo" />
+        <meta name="twitter:creator" content="@steveyu" />
+        <meta name="twitter:image" content={`${host}${ShareImage}`} />
 			</Helmet>
       <Header />
       <main>{children}</main>
