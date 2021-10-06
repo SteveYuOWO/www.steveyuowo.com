@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/layout';
 import { useQueryBlogInfo } from '../querys/queryBlog';
 import clsx from 'classnames';
@@ -35,8 +35,15 @@ const IndexPage = ({ location }) => {
 
 	const blogs = useFilterBlogsByParams(rawBlogs, location);
 
+	const [ triggerLoading, setTriggerLoading ] = useState(false);
+
 	return (
-		<Layout title="Homepage" description="steveyuowo - Steve Yu's blog" canonical="/">
+		<Layout
+			title="Homepage"
+			description="steveyuowo - Steve Yu's blog"
+			canonical="/"
+			triggerLoading={triggerLoading}
+		>
 			<div className={styles.container}>
 				<div className={clsx(styles.articles, 'shadow')}>
 					<div className={styles.article}>
@@ -59,11 +66,15 @@ const IndexPage = ({ location }) => {
 				<div className={clsx(styles.categories, 'shadow')}>
 					<h2>Categories</h2>
 					<div className={styles.category}>
-						<div key="all">
+						<div key="all" onClick={() => setTriggerLoading(!triggerLoading)}>
 							<Link to="/">all</Link>
 						</div>
 						{categories.map((category) => (
-							<div className={styles.text} key={category}>
+							<div
+								className={styles.text}
+								key={category}
+								onClick={() => setTriggerLoading(!triggerLoading)}
+							>
 								<Link to={`/?category=${category}`}>{category}</Link>
 							</div>
 						))}

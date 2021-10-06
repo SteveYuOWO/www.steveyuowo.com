@@ -30,6 +30,7 @@
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-source-wordpress": "^5.14.0",
     "gatsby-transformer-sharp": "^3.14.0",
+    "lottie-react-web": "^2.2.2",
     "query-string": "^7.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
