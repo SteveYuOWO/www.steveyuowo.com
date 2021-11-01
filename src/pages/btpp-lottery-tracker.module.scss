@@ -30,6 +30,21 @@
 	margin: 4vh 0;
 }
 
+.search_input_container {
+	width: 50%;
+	max-width: 300px;
+	margin: 2vh 0;
+}
+
+.search_input {
+	border: 1px solid gray;
+	border-radius: 10px;
+	height: 5vh;
+	width: 100%;
+	// background: red;
+	padding: 0 10px;
+}
+
 @media screen and (max-width: 1024px) {
 	.table {
 		font-size: 12px;
