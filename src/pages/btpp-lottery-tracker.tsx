@@ -3,11 +3,22 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import * as styles from './btpp-lottery-tracker.module.scss';
 import apiKey from '../../.apikey';
+import Loading from '../components/layout/loading';
+import classNames from 'classnames';
 
 const PTPPTracker = () => {
 	const [ lotteryRecords, setLotteryRecords ] = useState([]);
 	const [ noLotteryRecords, setNoLotteryRecords ] = useState([]);
 	const [ lotteryWinCounts, setLotteryWinCounts ] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if(lotteryRecords.length && noLotteryRecords.length && lotteryWinCounts.length) {
+      setLoading(false);
+    }
+  }, [lotteryRecords, noLotteryRecords, lotteryWinCounts])
+
 	useEffect(() => {
 		const etherScanApikey = apiKey.etherScan;
 		if (!etherScanApikey) {
@@ -70,13 +81,15 @@ const PTPPTracker = () => {
 					content="https://buttpoop.com/wp-content/uploads/2021/06/buttpoopseethru.png"
 				/>
 			</Helmet>
-			<main className={styles.main}>
+			<main className={classNames(styles.main, loading && "blur")}>
 				<h1 className={styles.title}>BTPP Lottery Tracker</h1>
 				<div>
 					<img src="https://buttpoop.com/wp-content/uploads/2021/06/buttpoopseethru.png" />
 				</div>
         <h2 className={styles.counts}>
-          Lottery records count: {lotteryRecords.length} &nbsp;&nbsp;&nbsp;&nbsp;
+          Lottery records count: {lotteryRecords.length}
+        </h2>
+        <h2 className={styles.counts}>
           Max win count: {lotteryWinCounts[0]?.count} 
         </h2>
 
@@ -116,6 +129,7 @@ const PTPPTracker = () => {
 					</tbody>
 				</table>
 			</main>
+      {loading && <Loading />}
 		</section>
 	);
 };
