@@ -86,12 +86,14 @@ const PTPPTracker = () => {
 				<div>
 					<img src="https://buttpoop.com/wp-content/uploads/2021/06/buttpoopseethru.png" />
 				</div>
-        <h2 className={styles.counts}>
-          Lottery records count: {lotteryRecords.length}
-        </h2>
-        <h2 className={styles.counts}>
-          Max win count: {lotteryWinCounts[0]?.count} 
-        </h2>
+        <div className={styles.summary}>
+          <p>
+            Lottery records count: {lotteryRecords.length}
+          </p>
+          <p>
+            Max win count: {lotteryWinCounts[0]?.count} 
+          </p>
+        </div>
 
 				<h2 className={styles.table_title}>Lottery win counts list</h2>
 				<table className={styles.table}>

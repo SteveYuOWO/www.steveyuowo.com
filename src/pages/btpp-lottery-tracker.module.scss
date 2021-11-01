@@ -11,17 +11,30 @@
 	margin-top: 4vh;
 }
 
-.table_title,
-.counts {
-	margin: 0.5vh 0;
+.summary {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	text-align: center;
+	p {
+		margin: 0.5vh 8px;
+		font-weight: bold;
+		color: brown;
+	}
 }
 
-.counts {
-	color: brown;
+.table_title {
+	margin: 0.5vh 0;
 }
 
 .table {
 	margin: 4vh 0;
+}
 
-	font-size: 12px;
+@media screen and (max-width: 1024px) {
+	.table {
+		font-size: 12px;
+	}
+	.summary {
+		grid-template-columns: 1fr;
+	}
 }
