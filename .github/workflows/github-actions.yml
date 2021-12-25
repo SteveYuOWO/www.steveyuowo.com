@@ -31,6 +31,8 @@ jobs:
 
       - name: Build project
         run: yarn build
+        env:
+          ETHER_SCAN_APIKEY: ${{ secrets.ETHER_SCAN_APIKEY }}
 
       - name: Upload assets
         uses: appleboy/scp-action@master
