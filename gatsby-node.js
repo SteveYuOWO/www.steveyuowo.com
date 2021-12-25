@@ -26,6 +26,14 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     if (result.errors) throw result.errors
 
+    createPage({
+      path: '/btpp-lottery-tracker',
+      component: path.resolve('src/components/btpp/index.tsx'),
+      context: {
+        etherscanApikey: process.env.ETHER_SCAN_APIKEY
+      }
+    })
+
     result.data.allWpPost.nodes.forEach(node => {
       createPage({
         path: `/archive/${node.slug}`,

@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import * as styles from './btpp-lottery-tracker.module.scss';
-import Loading from '../components/layout/loading';
+import * as styles from './index.module.scss';
+import Loading from '../layout/loading';
 import classNames from 'classnames';
 
-const PTPPTracker = () => {
+const PTPPTracker = ({pageContext}) => {
+  const {etherscanApikey} = pageContext;
   const [allTxRecordsRaw, setAllTxRecordsRaw] = useState([])
   const [lotteryRecords, setLotteryRecords] = useState([]);
   const [noLotteryRecords, setNoLotteryRecords] = useState([]);
@@ -21,13 +22,12 @@ const PTPPTracker = () => {
   }, [lotteryRecords, noLotteryRecords, lotteryWinCounts])
 
   useEffect(() => {
-    const etherScanApikey = process.env.ETHER_SCAN_APIKEY;
-    if (!etherScanApikey) {
+    if (!etherscanApikey) {
       throw new Error('No etherscan api key, please put it to .apikey.js file, key is `etherScan`');
     }
     axios
       .get(
-        `https://api.etherscan.io/api?module=account&action=tokentx&address=0xbebe03d890a535fd2427358eb030996cfe456ed7&startblock=0&endblock=999999999&sort=asc&apikey=${etherScanApikey}`
+        `https://api.etherscan.io/api?module=account&action=tokentx&address=0xbebe03d890a535fd2427358eb030996cfe456ed7&startblock=0&endblock=999999999&sort=asc&apikey=${etherscanApikey}`
       )
       .then((res) => {
         const allTxRecordsRaw = res.data.result.reverse();
@@ -58,6 +58,7 @@ const PTPPTracker = () => {
       })).sort((a, b) => (a.count === b.count) ? (a.address.localeCompare(b.address)) : (b.count - a.count))
     );
   }, [searchText, allTxRecordsRaw])
+
   return (
     <section>
       <Helmet
