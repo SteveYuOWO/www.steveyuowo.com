@@ -40,3 +40,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           source: "./public/*"
           target: "/usr/local/nginx/html"
+          strip_components: 1
