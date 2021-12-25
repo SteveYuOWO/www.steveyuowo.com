@@ -2,6 +2,11 @@ name: Build And Deploy To www.steveyuowo.com
 on:
   push:
     branches: [main]
+  schedule:
+    # see https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
+    # run the schedule once per hour
+    - cron: "55 * * * *"
+
 jobs:
   build:
     runs-on: ubuntu-latest
