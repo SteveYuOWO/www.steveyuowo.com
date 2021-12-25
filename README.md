@@ -23,9 +23,9 @@ Build the blog applications.
 
 ```shell
 # use npm
-npm run build
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} npm run build
 # use yarn
-yarn build
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} yarn build
 ```
 
 3. **Start developing.**
@@ -34,12 +34,12 @@ Navigate into your new site’s directory and start it up.
 
 ```shell
 # use npm
-npm run develop
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} npm run develop
 # use yarn
-yarn develop
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} yarn develop
 # if you used to use `start`, you can run like this.
-npm run start
-yarn start
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} npm run start
+ETHER_SCAN_APIKEY=${YOUR_API_KEY} yarn start
 ```
 
 4. **Open the blog**
