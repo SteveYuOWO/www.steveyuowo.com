@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
   # for my blog article post trigger
+  # POST
+  # https://api.github.com/repos/SteveYuOWO/www.steveyuowo.com/actions/workflows/github-actions.yml/dispatches
+  # token using bearer token
   workflow_dispatch:
   # schedule:
   # see https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
