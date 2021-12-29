@@ -30,6 +30,9 @@ jobs:
         run: yarn install
 
       - name: Build project
+        run: yarn clean
+
+      - name: Build project
         run: yarn build
         env:
           ETHER_SCAN_APIKEY: ${{ secrets.ETHER_SCAN_APIKEY }}
